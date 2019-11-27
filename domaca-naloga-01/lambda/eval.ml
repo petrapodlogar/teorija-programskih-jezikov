@@ -83,10 +83,11 @@ let is_value = function
   | S.Int _ | S.Bool _ | S.Lambda _ | S.RecLambda _ -> true
   | S.Var _ | S.Plus _ | S.Minus _ | S.Times _ | S.Equal _ | S.Less _ | S.Greater _
   | S.IfThenElse _ | S.Apply _ -> false
+  | S.Nil -> true
+  | S.Match _ -> false
+  | S.Fst _ | S.Snd _ 
   | S.Pair (e1, e2) -> is_value e1 && is_value e2
-  | S.Fst _ | S.Snd _ | S.Nil -> true
   | S.Cons (e1, e2) -> is_value e1 && is_value e2
-  | S.Match -> false
 
 let rec step = function
   | S.Var _ | S.Int _ | S.Bool _ | S.Lambda _ | S.RecLambda _ -> failwith "Expected a non-terminal expression"
