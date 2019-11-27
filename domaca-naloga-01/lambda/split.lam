@@ -1,0 +1,8 @@
+LET REC split seznam =
+    MATCH seznam WITH
+    | [] -> {[], []}
+    | x :: xs ->
+        LET ostanek = split xs IN
+        {(FST x) :: (FST ostanek), (SND x) :: (SND ostanek)}
+IN
+split ({1, 4} :: {2, 3} :: {3, 2} :: {4, 1} :: [])
