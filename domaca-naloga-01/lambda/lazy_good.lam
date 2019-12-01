@@ -1,0 +1,6 @@
+LET REC funkcija n =
+    IF n = 0 THEN 2
+    ELSE IF n = 1 THEN 3
+    ELSE funkcija (n - 1) * funkcija (n - 2)
+IN
+FST {1, funkcija 100}
