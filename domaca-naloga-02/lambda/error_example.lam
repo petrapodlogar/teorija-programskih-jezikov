@@ -1,0 +1,5 @@
+LET fun = (FALSE :: []) {1, 2}
+IN
+MATCH [] WITH
+  | [] -> TRUE
+  | x :: xs -> fun
